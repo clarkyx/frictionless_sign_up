@@ -14,10 +14,8 @@ $(function(){
       method: "post",
       dataType: 'json'
     }).done(function(response){
-      console.log(response);
-      if(!response){
-        reset();
-      }else{
+      reset();
+      if(response){
         if(response.person.avatar){
           $('#avatar').attr("src", response.person.avatar);
         }else{
