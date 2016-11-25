@@ -48,6 +48,7 @@ $(function(){
 });
 
 function reset(){
+  $('#email').val('');
   $('#information').trigger('reset');
   $('#avatar').attr("src", "<%=image_url('notavailable.png')%>");
-}
+};
