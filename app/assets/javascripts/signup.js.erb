@@ -1,6 +1,6 @@
 $(function(){
 
-  $('#emailfield').on('submit', function(){
+  $('#emailfield').on('submit', ()=>{
     event.preventDefault();
 
     if($('#email').val() === ''){
@@ -13,7 +13,7 @@ $(function(){
       data: {email: $('#email').val()},
       method: "post",
       dataType: 'json'
-    }).done(function(response){
+    }).done((response)=>{
       reset();
       if(response){
         if(response.person.avatar){
@@ -40,7 +40,7 @@ $(function(){
     });
   });
 
-  $('#reset').on('click', function(){
+  $('#reset').on('click', ()=>{
     event.preventDefault();
     reset();
   });

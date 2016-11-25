@@ -1,29 +1,19 @@
+# single page controller for populating relevent data by
+# provding an working email address.
 class SignupController < ApplicationController
+  # Default index page
   def index
   end
 
+  # Simple Apicall
   def apicall
-    if params["email"].empty?
-      result = {}
-    else
-      email = params["email"]
-      result = Clearbit::Enrichment.find(email: email, stream:true)
-    end
-    puts result
+    # Get enriched data reuslt from clearbit api
+    result = Apicall.new.send('clearbit', params)
 
-    unless result.nil?
-      if result.person.nil?
-        result.person = {}
-        if result.person.avatar.nil?
-          result.person.avatar = nil
-        end
-      end
-    end
-
+    # return result to client
     respond_to do |format|
       format.html
-      format.json {render json: result}
+      format.json { render json: result }
     end
-
   end
 end
