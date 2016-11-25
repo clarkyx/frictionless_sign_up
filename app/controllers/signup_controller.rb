@@ -12,9 +12,11 @@ class SignupController < ApplicationController
 
     puts result
 
-    if result.person.nil? || result.person.avatar.nil?
+    if result.person.nil?
       result.person = {}
-      result.person.avatar = nil
+      if result.person.avatar.nil?
+        result.person.avatar = nil
+      end
     end
 
     respond_to do |format|
