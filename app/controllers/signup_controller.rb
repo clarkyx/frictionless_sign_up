@@ -9,13 +9,14 @@ class SignupController < ApplicationController
       email = params["email"]
       result = Clearbit::Enrichment.find(email: email, stream:true)
     end
-
     puts result
 
-    if result.person.nil?
-      result.person = {}
-      if result.person.avatar.nil?
-        result.person.avatar = nil
+    unless result.nil?
+      if result.person.nil?
+        result.person = {}
+        if result.person.avatar.nil?
+          result.person.avatar = nil
+        end
       end
     end
 
