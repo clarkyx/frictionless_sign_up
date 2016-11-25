@@ -11,6 +11,12 @@ class SignupController < ApplicationController
     end
 
     puts result
+
+    if result.person.nil? || result.person.avatar.nil?
+      result.person = {}
+      result.person.avatar = nil
+    end
+
     respond_to do |format|
       format.html
       format.json {render json: result}
