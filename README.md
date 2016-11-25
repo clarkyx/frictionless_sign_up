@@ -1,6 +1,6 @@
 # frictionless_signup
 
-The app is utlizing clearbit api to populating user relevent data by providing
+The app is utilizing ClearBit api to populating user relevant data by providing
 a working email
 
 link: https://fast-oasis-86074.herokuapp.com/
